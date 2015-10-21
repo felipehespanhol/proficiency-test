@@ -3,18 +3,13 @@
 <head>
   <title>ProficiencyTest</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
-  <header>
-    <h1>Projeto Repense</h1>
-  </header>
+<body ng-app="repenseApp">
 
-  <section>
-    <%= yield %>
-  </section>
+  <%= yield %>
 
 </body>
 </html>

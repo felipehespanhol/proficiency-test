@@ -19,14 +19,19 @@ gem 'rails-assets-angular-resource', '1.2.14'
 gem 'rails-assets-angular-sanitize', '1.2.14'
 gem 'rails-assets-angular-animate', '1.2.14'
 gem 'rails-assets-angular-i18n', '1.2.14'
+gem 'rails-assets-angular-ui-router', '0.2.15'
 gem 'rails-assets-restangular', '~> 1.3.1'
 gem 'rails-assets-lodash', '~> 2.4.1'
+
+gem 'angular-rails-templates'
 
 gem 'simple_form', '~> 3.0.2'
 gem 'haml', '~> 4.0.4'
 
 gem 'enumerate_it', '~> 1.2.0'
 gem 'pg', '~> 0.17.1'
+
+gem "foreman"
 
 group :doc do
   gem 'sdoc', require: false
@@ -66,4 +71,7 @@ group :test do
 end
 
 group :production do
+  gem "rails_12factor"
+  gem "rails_stdout_logging"
+  gem "rails_serve_static_assets"
 end
