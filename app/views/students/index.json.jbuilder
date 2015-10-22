@@ -1,3 +1,3 @@
 json.array! @students do |student|
-  json.(student, :name, :register_number, :status)
+  json.(student, :id, :name, :register_number, :status)
 end

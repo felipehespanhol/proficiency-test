@@ -22,6 +22,7 @@ gem 'rails-assets-angular-i18n', '1.2.14'
 gem 'rails-assets-angular-ui-router', '0.2.15'
 gem 'rails-assets-restangular', '~> 1.3.1'
 gem 'rails-assets-lodash', '~> 2.4.1'
+gem 'rails-assets-bootstrap'
 
 gem 'angular-rails-templates'
 
