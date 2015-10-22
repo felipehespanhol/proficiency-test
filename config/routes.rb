@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'students/index'
+
   get 'home/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -57,4 +59,6 @@ Rails.application.routes.draw do
   #   end
 
   root to: 'home#index'
+
+  resources :students
 end
