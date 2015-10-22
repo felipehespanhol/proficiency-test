@@ -11,10 +11,13 @@ appServices.factory('Course', ['$resource', function($resource) {
 appServices.service('CourseService', ['Course', '$q', function(Course, $q) {
   var self = {
     'list': [],
+    'studentsForEnrollment': [],
     'isLoading': false,
     'isSaving': false,
     'isDeleting': false,
     'selectedCourse': null,
+    'selectedStudent': null,
+    'mode': null,
     'loadCourses': function() {
       self.isLoading = true;
       Course.query(function(data) {

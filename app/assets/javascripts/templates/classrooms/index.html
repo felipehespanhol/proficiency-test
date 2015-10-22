@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Matrículas no Curso de {{ courses.selectedCourse.name }}</h1>
+    <hr></hr>
+  </div>
+
+  <div class="col-xs-5">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Alunos Matriculados</h4></div>
+      <div class="panel-body">
+        <table class="table" ng-if="!courses.isLoading && !courses.isDeleting">
+          <thead>
+            <th class="col-sm-5">Nome</th>
+            <th class="col-sm-1 text-center">Registro</th>
+            <th class="col-sm-1 text-center">Situação</th>
+          </thead>
+          <tbody>
+            <tr ng-if="courses.classrooms.length == 0" class="warning">
+              <td colspan="5" class="text-center">Nenhum aluno matriculado...</td>
+            </tr>
+            <tr ng-repeat="classroom in courses.selectedCourse.classrooms"
+                ng-class="{'active': classroom.student.id == courses.selectedStudent.id}"
+                ng-click="courses.selectedStudent = classroom.student; courses.mode = 'remove'">
+              <td>{{ classroom.student.name }}</td>
+              <td class="text-center">{{ classroom.student.register_number }}</td>
+              <td class="text-center">{{ classroom.student.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-2 enrollment-btns">
+    <p><a class="btn btn-primary" ng-show="courses.mode === 'enroll'"><< Matricular</a></p>
+    <p><a class="btn btn-danger" ng-show="courses.mode == 'remove'">Desmatricular >></a></p>
+  </div>
+
+  <div class="col-xs-5">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Selecione para matrícula</h4></div>
+      <div class="panel-body">
+        <table class="table" ng-if="!courses.isLoading && !courses.isDeleting">
+          <thead>
+            <th class="col-sm-5">Nome</th>
+            <th class="col-sm-1 text-center">Registro</th>
+            <th class="col-sm-1 text-center">Situação</th>
+          </thead>
+          <tbody>
+            <tr ng-if="courses.students_not_enrolled.length == 0" class="warning">
+              <td colspan="5" class="text-center">Nenhum aluno matriculado...</td>
+            </tr>
+            <tr ng-repeat="student in courses.selectedCourse.students_not_enrolled"
+                ng-class="{'active': student.id == courses.selectedStudent.id}"
+                ng-click="courses.selectedStudent = student; courses.mode = 'enroll'">
+              <td>{{ student.name }}</td>
+              <td class="text-center">{{ student.register_number }}</td>
+              <td class="text-center">{{ student.status }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

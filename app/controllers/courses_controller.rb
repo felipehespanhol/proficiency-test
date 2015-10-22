@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+    @students_not_enrolled = Student.all - @course.classrooms.map(&:student)
   end
 
   def update

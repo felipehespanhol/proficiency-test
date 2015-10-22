@@ -27,7 +27,3 @@ appControllers.controller('CoursesNewController', ['$scope', 'Course', 'CourseSe
     });
   };
 }]);
-
-appControllers.controller('CoursesEnrollmentController', ['$scope', 'Course', 'CourseService', '$state', function($scope, Course, CourseService, $state) {
-  $scope.enrollment = "This is enrollment!!!";
-}]);

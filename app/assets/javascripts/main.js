@@ -6,6 +6,7 @@ var app = angular.module('repenseApp', [
   'angularSpinner',
   'repenseApp.controllers.students',
   'repenseApp.controllers.courses',
+  'repenseApp.controllers.classrooms',
   'repenseApp.services.student',
   'repenseApp.services.course'
 ]);
@@ -44,9 +45,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       templateUrl: 'courses/new.html',
       controller: 'CoursesNewController'
     })
-    .state('courseEnrollment', {
-      url: '/courses/:courseId/enrollment',
-      templateUrl: 'courses/enrollment.html',
-      controller: 'CoursesEnrollmentController'
+    .state('classrooms', {
+      url: '/courses/:courseId/classrooms',
+      templateUrl: 'classrooms/index.html',
+      controller: 'EnrollmentsIndexController'
     })
 }]);
