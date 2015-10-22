@@ -37,15 +37,17 @@
     <p>
       <button class="btn btn-primary"
               ng-click="enrollStudent()"
-              ng-disabled="classrooms.mode != 'enroll'">
-        << Matricular
+              ng-disabled="classrooms.mode != 'enroll' || classrooms.isSaving">
+        <span ng-if="classrooms.isSaving">Matriculando...</span>
+        <span ng-if="!classrooms.isSaving"><< Matricular</span>
       </button>
     </p>
     <p>
       <button class="btn btn-danger"
               ng-click="removeStudent()"
-              ng-disabled="classrooms.mode != 'remove'">
-        Desmatricular >>
+              ng-disabled="classrooms.mode != 'remove' || classrooms.isDeleting">
+        <span ng-if="classrooms.isDeleting">Desmatriculando...</span>
+        <span ng-if="!classrooms.isDeleting">Desmatricular >></span>
       </button>
     </p>
   </div>
