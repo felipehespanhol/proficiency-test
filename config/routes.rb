@@ -61,5 +61,9 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   resources :students
-  resources :courses
+  resources :courses do
+    resources :students do
+      resources :classrooms
+    end
+  end
 end

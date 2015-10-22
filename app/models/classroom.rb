@@ -7,6 +7,6 @@ class Classroom < ActiveRecord::Base
   before_create :set_entry_at
 
   def set_entry_at
-    self.entry_at = DateTime.now
+    entry_at = DateTime.now
   end
 end
