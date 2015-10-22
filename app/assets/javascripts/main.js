@@ -44,4 +44,9 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       templateUrl: 'courses/new.html',
       controller: 'CoursesNewController'
     })
+    .state('courseEnrollment', {
+      url: '/courses/:courseId/enrollment',
+      templateUrl: 'courses/enrollment.html',
+      controller: 'CoursesEnrollmentController'
+    })
 }]);
