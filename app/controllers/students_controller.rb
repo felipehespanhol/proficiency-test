@@ -13,6 +13,17 @@ class StudentsController < ApplicationController
     render status: 200, json: @student
   end
 
+  def create
+    @student = Student.create!(student_params)
+    render status: 200, json: @student
+  end
+
+  def destroy
+    @student = Student.find(params[:id])
+    @student.destroy!
+    render status: 200, json: @student
+  end
+
   private
 
   def student_params
