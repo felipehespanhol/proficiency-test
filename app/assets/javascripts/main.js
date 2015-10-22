@@ -7,7 +7,7 @@ var app = angular.module('repenseApp', [
   'repenseApp.services'
 ]);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
@@ -26,4 +26,4 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: 'students/new.html',
       controller: 'StudentsNewController'
     })
-});
+}]);
