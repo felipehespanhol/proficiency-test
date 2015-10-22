@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h1>Cursos</h1>
+  </div>
+
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <a ui-sref="newCourse" class="btn btn-primary pull-right">Novo</a></div>
+        <table class="table table-striped" ng-if="!courses.isLoading && !courses.isDeleting">
+          <thead>
+            <th class="col-sm-4">Nome</th>
+            <th class="col-sm-5">Descrição</th>
+            <th class="col-sm-1 text-center">Situação</th>
+            <th class="col-sm-1"></th>
+            <th class="col-sm-1"></th>
+          </thead>
+          <tbody>
+            <tr ng-if="courses.list.length == 0" class="warning">
+              <td colspan="5" class="text-center">Nenhum curso cadastrado...</td>
+            </tr>
+            <tr ng-repeat="course in courses.list">
+              <td>{{ course.name }}</td>
+              <td class="text-left">{{ course.description }}</td>
+              <td class="text-center">{{ course.status }}</td>
+              <td class="text-right"><a ui-sref="editCourse({courseId: course.id})">Editar</a></td>
+              <td class="text-right"><a ng-click="removeCourse(course)">Remover</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 text-center" ng-if="courses.isLoading || courses.isDeleting" style="padding-top: 100px">
+    <span us-spinner style="padding-top: 200px"></span>
+    <span ng-if="courses.isDeleting">Removendo...</span>
+    <span ng-if="courses.isLoading">Carregando...</span>
+  </div>
+</div>
+

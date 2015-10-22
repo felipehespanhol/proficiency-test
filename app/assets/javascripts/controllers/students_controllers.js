@@ -1,4 +1,4 @@
-var appControllers = angular.module('repenseApp.controllers', [])
+var appControllers = angular.module('repenseApp.controllers.students', []);
 
 appControllers.controller('StudentsIndexController', ['$scope', 'StudentService', function($scope, StudentService) {
   $scope.students = StudentService;

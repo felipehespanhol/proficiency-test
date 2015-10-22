@@ -1,4 +1,4 @@
-var appServices = angular.module('repenseApp.services', [])
+var appServices = angular.module('repenseApp.services.student', []);
 
 appServices.factory('Student', ['$resource', function($resource) {
   return $resource('/students/:studentId.json', {studentId: '@id'}, {

@@ -16,6 +16,9 @@
             <th class="col-sm-1"></th>
           </thead>
           <tbody>
+            <tr ng-if="students.list.length == 0" class="warning">
+              <td colspan="5" class="text-center">Nenhum aluno cadastrado...</td>
+            </tr>
             <tr ng-repeat="student in students.list">
               <td>{{ student.name }}</td>
               <td class="text-center">{{ student.register_number }}</td>

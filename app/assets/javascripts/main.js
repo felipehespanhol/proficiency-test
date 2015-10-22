@@ -4,8 +4,10 @@ var app = angular.module('repenseApp', [
   'ngAnimate',
   'ui.router',
   'angularSpinner',
-  'repenseApp.controllers',
-  'repenseApp.services'
+  'repenseApp.controllers.students',
+  'repenseApp.controllers.courses',
+  'repenseApp.services.student',
+  'repenseApp.services.course'
 ]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
@@ -26,5 +28,20 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       url: '/students/new',
       templateUrl: 'students/new.html',
       controller: 'StudentsNewController'
+    })
+    .state('courses', {
+      url: '/courses',
+      templateUrl: 'courses/index.html',
+      controller: 'CoursesIndexController'
+    })
+    .state('editCourse', {
+      url: '/courses/:courseId/edit',
+      templateUrl: 'courses/edit.html',
+      controller: 'CoursesEditController'
+    })
+    .state('newCourse', {
+      url: '/courses/new',
+      templateUrl: 'courses/new.html',
+      controller: 'CoursesNewController'
     })
 }]);

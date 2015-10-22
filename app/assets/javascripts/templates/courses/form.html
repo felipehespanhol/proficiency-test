@@ -1,0 +1,31 @@
+<form ng-submit="save()">
+  <div class="form-group row">
+    <div class="col-xs-6">
+      <label for="course-name">Nome</label>
+      <input type="text" ng-model="courses.selectedCourse.name" class="form-control" required/>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-xs-4">
+      <label for="course-name">Descrição</label>
+      <input type="text" ng-model="courses.selectedCourse.description" class="form-control" required/>
+    </div>
+  </div>
+  
+  <div class="form-group row">
+    <div class="col-xs-4">
+      <label for="course-name">Situação</label>
+      <input type="text" ng-model="courses.selectedCourse.status" class="form-control" disabled="disabled"/>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-xs-4">
+      <button type="submit" class="btn btn-primary">
+        <span ng-if="!courses.isSaving">Enviar</span>
+        <span ng-if="courses.isSaving">Enviando...</span>
+      </button>
+    </div>
+  </div>
+</form>
