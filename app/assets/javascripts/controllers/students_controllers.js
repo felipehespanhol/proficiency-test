@@ -10,7 +10,7 @@ appControllers.controller('StudentsIndexController', ['$scope', 'StudentService'
 
 appControllers.controller('StudentsEditController', ['$scope', 'StudentService', '$stateParams', '$state', function($scope, StudentService, $stateParams, $state) {
   $scope.students = StudentService;
-  $scope.students.getStudent($stateParams.studentId);
+  $scope.students.selectedStudent = $scope.students.getStudent($stateParams.studentId);
   $scope.save = function() {
     $scope.students.updateStudent($scope.students.selectedStudent).then(function() {
       $state.go('students');

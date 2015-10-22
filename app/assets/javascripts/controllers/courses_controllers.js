@@ -10,7 +10,7 @@ appControllers.controller('CoursesIndexController', ['$scope', 'CourseService', 
 
 appControllers.controller('CoursesEditController', ['$scope', 'CourseService', '$stateParams', '$state', function($scope, CourseService, $stateParams, $state) {
   $scope.courses = CourseService;
-  $scope.courses.getCourse($stateParams.courseId);
+  $scope.courses.selectedCourse = $scope.courses.getCourse($stateParams.courseId);
   $scope.save = function() {
     $scope.courses.updateCourse($scope.courses.selectedCourse).then(function() {
       $state.go('courses');

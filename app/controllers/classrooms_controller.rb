@@ -2,7 +2,7 @@ class ClassroomsController < ApplicationController
   def index
     @course = Course.find(params[:course_id])
     @classrooms = @course.classrooms
-    @students_not_enrolled = Student.all - @course.classrooms.map(&:student)
+    @students_not_enrolled = Student.active - @course.classrooms.map(&:student)
   end
 
   def create

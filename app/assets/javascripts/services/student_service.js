@@ -25,11 +25,17 @@ appServices.service('StudentService', ['Student', '$q', function(Student, $q) {
       });
     },
     'getStudent': function(studentId) {
-      self.isLoading = true;
-      Student.get({studentId: studentId}, function(student) {
-        self.selectedStudent = new Student(student);
-        self.isLoading = false;
-      });
+      //self.isLoading = true;
+      for(var i=0; i < self.list.length; i++) {
+        var student = self.list[i];
+        if(student.id == studentId) {
+          return student;
+        }
+      };
+      //Student.get({studentId: studentId}, function(student) {
+      //  self.selectedStudent = new Student(student);
+      //  self.isLoading = false;
+      //});
     },
     'updateStudent': function(student) {
       var d = $q.defer();

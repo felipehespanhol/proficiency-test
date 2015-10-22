@@ -20,7 +20,10 @@
   <div class="form-group row">
     <div class="col-xs-4">
       <label for="student-name">Situação</label>
-      <input type="text" ng-model="students.selectedStudent.status" class="form-control" disabled="disabled"/>
+      <select ng-model="students.selectedStudent.status" class="form-control">
+        <option value="0">Ativo</option>
+        <option value="1">Inativo</option>
+      </select>
     </div>
   </div>
 

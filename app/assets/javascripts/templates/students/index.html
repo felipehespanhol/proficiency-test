@@ -22,7 +22,7 @@
             <tr ng-repeat="student in students.list">
               <td>{{ student.name }}</td>
               <td class="text-center">{{ student.register_number }}</td>
-              <td class="text-center">{{ student.status }}</td>
+              <td class="text-center">{{ student.status | studentStatus }}</td>
               <td class="text-right"><a ui-sref="editStudent({studentId: student.id})">Editar</a></td>
               <td class="text-right"><a ng-click="removeStudent(student)">Remover</a></td>
             </tr>

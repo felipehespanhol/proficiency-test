@@ -23,7 +23,7 @@
             <tr ng-repeat="course in courses.list">
               <td>{{ course.name }}</td>
               <td class="text-left">{{ course.description }}</td>
-              <td class="text-center">{{ course.status }}</td>
+              <td class="text-center">{{ course.status | courseStatus}}</td>
               <td class="text-right"><a ui-sref="classrooms({courseId: course.id})">Matrículas</a></td>
               <td class="text-right"><a ui-sref="editCourse({courseId: course.id})">Editar</a></td>
               <td class="text-right"><a ng-click="removeCourse(course)">Remover</a></td>

@@ -23,7 +23,6 @@ appServices.service('ClassroomService', ['Classroom', 'Student', '$q', '$rootSco
     'loadClassrooms': function() {
       self.isLoading = true;
       Classroom.get({courseId: self.selectedCourse.id}, function(data) {
-        console.log(data);
         angular.forEach(data.classrooms, function(classroom) {
           self.list.push(new Classroom(classroom));
         });

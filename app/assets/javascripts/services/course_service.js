@@ -25,14 +25,20 @@ appServices.service('CourseService', ['Course', '$q', function(Course, $q) {
       });
     },
     'getCourse': function(courseId) {
-      var d = $q.defer();
-      self.isLoading = true;
-      Course.get({courseId: courseId}, function(course) {
-        self.selectedCourse = new Course(course);
-        self.isLoading = false;
-        d.resolve();
-      });
-      return d.promise;
+      //var d = $q.defer();
+      //self.isLoading = true;
+      //Course.get({courseId: courseId}, function(course) {
+      //  self.selectedCourse = new Course(course);
+      //  self.isLoading = false;
+      //  d.resolve();
+      //});
+      //return d.promise;
+      for(var i=0; i < self.list.length; i++) {
+        var course = self.list[i];
+        if(course.id == courseId) {
+          return course;
+        }
+      };
     },
     'updateCourse': function(course) {
       var d = $q.defer();

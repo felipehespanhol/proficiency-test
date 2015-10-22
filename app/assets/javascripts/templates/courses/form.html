@@ -16,7 +16,10 @@
   <div class="form-group row">
     <div class="col-xs-4">
       <label for="course-name">Situação</label>
-      <input type="text" ng-model="courses.selectedCourse.status" class="form-control" disabled="disabled"/>
+      <select ng-model="courses.selectedCourse.status" class="form-control">
+        <option value="0">Aberto</option>
+        <option value="1">Fechado</option>
+      </select>
     </div>
   </div>
 

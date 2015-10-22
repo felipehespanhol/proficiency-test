@@ -10,7 +10,8 @@ var app = angular.module('repenseApp', [
   'repenseApp.controllers.classrooms',
   'repenseApp.services.student',
   'repenseApp.services.course',
-  'repenseApp.services.classroom'
+  'repenseApp.services.classroom',
+  'repenseApp.filters'
 ]);
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
