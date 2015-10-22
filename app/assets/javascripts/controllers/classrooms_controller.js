@@ -1,6 +1,9 @@
 var appControllers = angular.module('repenseApp.controllers.classrooms', []);
 
-appControllers.controller('EnrollmentsIndexController', ['$scope', 'CourseService', '$state', '$stateParams', function($scope, CourseService, $state, $stateParams) {
+appControllers.controller('EnrollmentsIndexController', ['$scope', 'ClassroomService', 'CourseService', '$state', '$stateParams', function($scope, ClassroomService, CourseService, $state, $stateParams) {
+  $scope.classrooms = ClassroomService;
   $scope.courses = CourseService;
-  $scope.courses.getCourse($stateParams.courseId);
+  CourseService.getCourse($stateParams.courseId).then(function() {
+    $scope.classrooms.selectedCourse = $scope.courses.selectedCourse;
+  });
 }]);

@@ -62,6 +62,7 @@ Rails.application.routes.draw do
 
   resources :students
   resources :courses do
+    resources :classrooms
     resources :students do
       resources :classrooms
     end
