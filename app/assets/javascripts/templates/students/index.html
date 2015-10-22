@@ -1,23 +1,31 @@
 <div class="row">
-  <div class="col-sm-10 col-sm-offset-1">
-    <table class="table table-striped">
-      <thead>
-        <th>Nome</th>
-        <th>Registro</th>
-        <th>Status</th>
-        <th></th>
-        <th></th>
-      </thead>
-      <tbody>
-        <tr ng-repeat="student in students.list">
-          <td class="col-sm-5">{{ student.name }}</td>
-          <td class="col-sm-2">{{ student.register_number }}</td>
-          <td class="col-sm-1">{{ student.status }}</td>
-          <td class="col-sm-1"><a ui-sref="edit-student({id: student.id})">Editar</a></td>
-          <td class="col-sm-1"><a ng-click="removeStudent(student)">Remover</a></td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="col-xs-12">
+    <h1>Alunos</h1>
+  </div>
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <a ui-sref="createUser" class="btn btn-primary pull-right">Novo</a></div>
+        <table class="table table-striped">
+          <thead>
+            <th class="col-sm-5">Nome</th>
+            <th class="col-sm-2 text-center">Registro</th>
+            <th class="col-sm-1 text-center">Situação</th>
+            <th class="col-sm-1"></th>
+            <th class="col-sm-1"></th>
+          </thead>
+          <tbody>
+            <tr ng-repeat="student in students.list">
+              <td>{{ student.name }}</td>
+              <td class="text-center">{{ student.register_number }}</td>
+              <td class="text-center">{{ student.status }}</td>
+              <td class="text-right"><a ui-sref="editStudent({studentId: student.id})">Editar</a></td>
+              <td class="text-right"><a ng-click="removeStudent(student)">Remover</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 

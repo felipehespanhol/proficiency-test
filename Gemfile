@@ -25,6 +25,7 @@ gem 'rails-assets-lodash', '~> 2.4.1'
 gem 'rails-assets-bootstrap'
 
 gem 'angular-rails-templates'
+gem 'angular_rails_csrf'
 
 gem 'simple_form', '~> 3.0.2'
 gem 'haml', '~> 4.0.4'
