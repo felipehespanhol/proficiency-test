@@ -9,7 +9,11 @@
   <div class="form-group row">
     <div class="col-xs-4">
       <label for="student-name">Matrícula</label>
-      <input type="text" ng-model="students.selectedStudent.register_number" class="form-control" required/>
+      <input type="text"
+             ng-model="students.selectedStudent.register_number"
+             mask="9999.9999",
+             placeholder="Ex.: 1234.5678"
+             class="form-control" required/>
     </div>
   </div>
   

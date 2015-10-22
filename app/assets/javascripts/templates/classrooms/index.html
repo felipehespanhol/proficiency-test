@@ -12,7 +12,7 @@
           <thead>
             <th class="col-sm-5">Nome</th>
             <th class="col-sm-1 text-center">Registro</th>
-            <th class="col-sm-1 text-center">Situação</th>
+            <th class="col-sm-4 text-center">Entrou em</th>
           </thead>
           <tbody>
             <tr ng-if="classrooms.list.length == 0" class="warning">
@@ -25,7 +25,7 @@
                           classrooms.mode = 'remove'">
               <td>{{ classroom.student.name }}</td>
               <td class="text-center">{{ classroom.student.register_number }}</td>
-              <td class="text-center">{{ classroom.student.status }}</td>
+              <td class="text-center">{{ classroom.entry_at | date:'dd/MM/yyyy HH:mm' }}</td>
             </tr>
           </tbody>
         </table>

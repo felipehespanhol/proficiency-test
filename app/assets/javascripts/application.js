@@ -19,4 +19,5 @@
 //= require spin
 //= require angular-spinner
 //= require angular-rails-templates
+//= require ngMask
 //= require_tree .

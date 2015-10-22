@@ -2,6 +2,7 @@ var app = angular.module('repenseApp', [
   'templates',
   'ngResource',
   'ngAnimate',
+  'ngMask',
   'ui.router',
   'angularSpinner',
   'repenseApp.controllers.students',

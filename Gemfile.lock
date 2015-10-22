@@ -178,6 +178,7 @@ GEM
       rails-assets-angular (>= 1.0.8)
     rails-assets-bootstrap (3.3.5)
       rails-assets-jquery (>= 1.9.1)
+    rails-assets-candreoliveira--ngMask (3.0.16)
     rails-assets-jquery (2.1.4)
     rails-assets-lodash (2.4.1)
     rails-assets-normalize-scss (3.0.1)
@@ -308,6 +309,7 @@ DEPENDENCIES
   rails-assets-angular-spinner
   rails-assets-angular-ui-router (= 0.2.15)
   rails-assets-bootstrap
+  rails-assets-candreoliveira--ngMask
   rails-assets-lodash (~> 2.4.1)
   rails-assets-normalize-scss (~> 3.0.1)
   rails-assets-restangular (~> 1.3.1)
