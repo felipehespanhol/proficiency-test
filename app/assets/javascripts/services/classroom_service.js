@@ -1,7 +1,12 @@
 var appServices = angular.module('repenseApp.services.classroom', []);
 
 appServices.factory('Classroom', ['$resource', function($resource) {
-  return $resource('/courses/:courseId/classrooms.json');
+  return $resource('/courses/:courseId/classrooms/:classroomId.json', {classroomId: '@id'}, {
+    create: {
+      url: '/courses/:courseId/students/:studentId/classrooms.js',
+      method: 'POST'
+    }
+  });
 }]);
 
 appServices.service('ClassroomService', ['Classroom', 'Student', '$q', '$rootScope', function(Classroom, Student, $q, $rootScope) {
@@ -13,6 +18,7 @@ appServices.service('ClassroomService', ['Classroom', 'Student', '$q', '$rootSco
     'isDeleting': false,
     'selectedCourse': null,
     'selectedStudent': null,
+    'selectedClassroom': null,
     'mode': null,
     'loadClassrooms': function() {
       self.isLoading = true;
@@ -27,14 +33,32 @@ appServices.service('ClassroomService', ['Classroom', 'Student', '$q', '$rootSco
         self.isLoading = false;
       });
     },
-    'removeClassroom': function(classroom) {
+    'reloadClassrooms': function() {
+      self.list = [];
+      self.studentsForEnrollment = [],
+      self.loadClassrooms();
+    },
+    'saveClassroom': function() {
+      var d = $q.defer();
+      self.isSaving = true;
+      Classroom.create({
+        courseId: self.selectedCourse.id,
+        studentId: self.selectedStudent.id
+      }, {}, function(classroom) {
+        self.reloadClassrooms();
+        self.isSaving = false;
+        self.mode = null;
+        d.resolve();
+      });
+      return d.promise;
+    },
+    'removeClassroom': function() {
       var d = $q.defer();
       self.isDeleting = true;
-      classroom.$remove().then(function() {
-        var index = self.list.indexOf(classroom);
-        self.list.splice(index, 1);
-        self.selectedClassroom = null;
+      self.selectedClassroom.$remove({courseId: self.selectedCourse.id}).then(function() {
+        self.reloadClassrooms();
         self.isDeleting = false;
+        self.mode = null;
         d.resolve();
       });
       return d.promise;

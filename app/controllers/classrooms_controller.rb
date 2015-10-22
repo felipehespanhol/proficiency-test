@@ -11,4 +11,10 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.create!(student_id: @student.id, course_id: @course.id)
     render json: @classroom
   end
+
+  def destroy
+    @classroom = Classroom.find(params[:id])
+    @classroom.destroy!
+    render json: @classroom
+  end
 end

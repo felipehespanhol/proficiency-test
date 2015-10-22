@@ -20,7 +20,9 @@
             </tr>
             <tr ng-repeat="classroom in classrooms.list"
                 ng-class="{'active': classroom.student.id == classrooms.selectedStudent.id}"
-                ng-click="classrooms.selectedStudent = classroom.student; classrooms.mode = 'remove'">
+                ng-click="classrooms.selectedStudent = classroom.student;
+                          classrooms.selectedClassroom = classroom;
+                          classrooms.mode = 'remove'">
               <td>{{ classroom.student.name }}</td>
               <td class="text-center">{{ classroom.student.register_number }}</td>
               <td class="text-center">{{ classroom.student.status }}</td>
@@ -32,8 +34,20 @@
   </div>
 
   <div class="col-xs-2 enrollment-btns">
-    <p><a class="btn btn-primary" ng-show="classrooms.mode === 'enroll'"><< Matricular</a></p>
-    <p><a class="btn btn-danger" ng-show="classrooms.mode == 'remove'">Desmatricular >></a></p>
+    <p>
+      <button class="btn btn-primary"
+              ng-click="enrollStudent()"
+              ng-disabled="classrooms.mode != 'enroll'">
+        << Matricular
+      </button>
+    </p>
+    <p>
+      <button class="btn btn-danger"
+              ng-click="removeStudent()"
+              ng-disabled="classrooms.mode != 'remove'">
+        Desmatricular >>
+      </button>
+    </p>
   </div>
 
   <div class="col-xs-5">
@@ -48,7 +62,7 @@
           </thead>
           <tbody>
             <tr ng-if="classrooms.studentsForEnrollment.length == 0" class="warning">
-              <td colspan="5" class="text-center">Nenhum aluno matriculado...</td>
+              <td colspan="5" class="text-center">Nenhum aluno disponível...</td>
             </tr>
             <tr ng-repeat="student in classrooms.studentsForEnrollment"
                 ng-class="{'active': student.id == classrooms.selectedStudent.id}"

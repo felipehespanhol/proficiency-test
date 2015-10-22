@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :classroom do
-    course_id 1
-    student_id 1
+    association(:course)
+    association(:student)
+    entry_at '2015-10-22'
   end
 end

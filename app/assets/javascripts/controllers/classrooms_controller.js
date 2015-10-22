@@ -6,4 +6,10 @@ appControllers.controller('EnrollmentsIndexController', ['$scope', 'ClassroomSer
   CourseService.getCourse($stateParams.courseId).then(function() {
     $scope.classrooms.selectedCourse = $scope.courses.selectedCourse;
   });
+  $scope.enrollStudent = function() {
+    $scope.classrooms.saveClassroom();
+  };
+  $scope.removeStudent = function() {
+    $scope.classrooms.removeClassroom();
+  };
 }]);
