@@ -57,6 +57,7 @@ appServices.service('StudentService', ['Student', '$q', function(Student, $q) {
         var index = self.list.indexOf(student);
         self.list.splice(index, 1);
         self.selectedStudent = null;
+        self.isDeleting = false;
         d.resolve();
       });
       return d.promise;

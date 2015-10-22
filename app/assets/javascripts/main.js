@@ -3,6 +3,7 @@ var app = angular.module('repenseApp', [
   'ngResource',
   'ngAnimate',
   'ui.router',
+  'angularSpinner',
   'repenseApp.controllers',
   'repenseApp.services'
 ]);

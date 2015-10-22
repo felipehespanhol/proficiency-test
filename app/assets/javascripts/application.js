@@ -16,5 +16,7 @@
 //= require angular-animate
 //= require angular-i18n/angular-locale_pt-br
 //= require angular-ui-router
+//= require spin
+//= require angular-spinner
 //= require angular-rails-templates
 //= require_tree .
